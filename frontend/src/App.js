@@ -12,6 +12,7 @@ import TicketPage from "./pages/TicketPage";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLogin from "./pages/AdminLogin";
+import EventDetails from "./pages/EventDetails";
 
 function App() {
   return (
@@ -23,6 +24,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminLogin />} />
+
+        <Route
+          path="/event/:id"
+          element={
+            <ProtectedRoute>
+              <EventDetails />
+            </ProtectedRoute>
+          }
+        />
 
 
         <Route

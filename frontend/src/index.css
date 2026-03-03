@@ -3,5 +3,17 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-br from-indigo-900 via-purple-900 to-black text-white min-h-screen;
+  @apply bg-gradient-to-br from-indigo-950 via-purple-900 to-black min-h-screen text-white;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 rounded-xl bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500;
+}
+
+.card {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-6;
+}
+
+.button-primary {
+  @apply px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-xl font-semibold transition duration-300;
 }
