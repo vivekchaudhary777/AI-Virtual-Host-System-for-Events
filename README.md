@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Virtual Event Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered virtual event platform featuring a 3D interactive avatar host, real-time chat, automated event agenda scheduling, and dynamic analytics. Built using the MERN stack (MongoDB, Express.js, React, Node.js) and integrating Google Gemini for intelligent AI chat capabilities, alongside LangSmith for interaction tracing and evaluation.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **🤖 AI-Powered 3D Virtual Host**: Interactive 3D avatar built with React Three Fiber/Drei and powered by Google Gemini AI for intelligent hosting.
+- **💬 Real-Time Chat & Interaction**: Seamless communication between attendees and admins utilizing WebSockets (`Socket.io`).
+- **📅 Automated Event Agenda Scheduling**: Event scheduling and time-based triggers handled by `node-cron`.
+- **📊 Dynamic Analytics Dashboard**: Real-time insights into event revenue, ticket sales, and attendance tracking.
+- **🎟️ Ticketing System**: Integrated event ticketing and attendee management workflows.
+- **🛡️ Secure Authentication**: Robust user authentication and authorization managed securely using JWT and `bcrypt`.
+- **🔍 AI Monitoring**: Observability, performance tracking, and debugging of AI interactions using LangSmith integration.
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- **Framework**: React.js
+- **Routing**: React Router DOM
+- **3D Graphics**: Three.js, `@react-three/fiber`, `@react-three/drei`
+- **Styling**: Bootstrap, React-Bootstrap, Styled Components
+- **Networking**: Axios, Socket.io-client
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: MongoDB with Mongoose
+- **Real-Time Engine**: Socket.io
+- **Task Scheduling**: Node-cron
 
-### `npm test`
+### AI & Observability Integrations
+- **AI Models**: Google Gemini (`@google/generative-ai`, `@langchain/google-genai`)
+- **LLM Orchestration**: LangChain
+- **Tracing & Evaluation**: LangSmith
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ Setup Instructions
 
-### `npm run build`
+Follow these steps to run the project locally on your machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) installed
+- [MongoDB](https://www.mongodb.com/try/download/community) running locally or a MongoDB Atlas URI
+- API Keys for Google Gemini and LangSmith
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Clone the Repository
+```bash
+git clone <repository-url>
+cd virtual-event-platform-master
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Install Dependencies
 
-### `npm run eject`
+**Backend Dependencies:**
+From the root directory, install the backend dependencies.
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Frontend Dependencies:**
+Navigate into the `frontend` folder and install its dependencies.
+```bash
+cd frontend
+npm install
+cd ..
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Environment Variables
+Create a `.env` file in the root directory. You can use the provided `.env.example` as a template:
+```bash
+cp .env.example .env
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Update the `.env` file with your actual keys:
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/virtual-event-platform
+JWT_SECRET=your_jwt_secret_here
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Gemini AI Key (Get yours at https://aistudio.google.com/)
+GEMINI_API_KEY=your_gemini_api_key_here
 
-## Learn More
+# LangSmith Tracing
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_ENDPOINT="https://api.smith.langchain.com"
+LANGCHAIN_API_KEY=your_langchain_api_key_here
+LANGCHAIN_PROJECT="virtual-event-platform"
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Run the Application
+The project is configured to run both the frontend and backend concurrently using a single command. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+From the root directory, run:
+```bash
+npm run dev
+```
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 6. Access the Platform
+- **Frontend** will run on: `http://localhost:3000` (by default React script)
+- **Backend API** will be served at: `http://localhost:5000`
